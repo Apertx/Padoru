@@ -1,0 +1,17 @@
+attribute vec4 aSPos; 
+attribute vec4 aSVec;
+attribute vec2 aSLifeT;
+uniform float uSTime;
+varying float vSDelta;
+
+void main(){
+ if(aSLifeT.y>=uSTime){
+  vSDelta=(aSLifeT.x-uSTime);
+  vec4 vc=aSPos;
+  vc.x+=sin(uSTime*aSVec.x)*0.125;
+  vc.y+=aSVec.y*vSDelta;
+  vSDelta*=4.0;
+  gl_PointSize=32.0;
+  gl_Position=vc;
+ }else gl_Position=vec4(2.0,2.0,0.0,1.0);
+}

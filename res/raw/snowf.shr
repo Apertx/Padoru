@@ -1,0 +1,8 @@
+precision lowp float;
+uniform sampler2D uSTex;
+varying float vSDelta;
+
+void main(){
+ vec4 c=texture2D(uSTex,gl_PointCoord);
+ gl_FragColor=vec4(c.r,c.g*sin(vSDelta),c.b,c.a);
+}

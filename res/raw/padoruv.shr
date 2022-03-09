@@ -1,0 +1,10 @@
+precision lowp float;
+attribute vec4 aPos;
+attribute vec2 aTex;
+uniform mat4 uMat;
+varying vec2 vTex;
+
+void main(){
+ gl_Position=uMat*aPos;
+ vTex=aTex;
+}
